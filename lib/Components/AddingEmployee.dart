@@ -26,9 +26,28 @@ class _AddEmployeeState extends State<AddEmployee> {
   int _currentmonth;
   int _currentyear;
   HomePage _homePage = HomePage();
+  List<String> smonths = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
 
   @override
   void initState() {
+    super.initState();
+    var settingup = DateTime.now();
+    _currentday = settingup.day;
+    _currentmonth = settingup.month;
+    _currentyear = settingup.year;
     dayOfJoining = _getDayDropDown();
     monthOfJoining = _getMonthDropDown();
     yearOfJoining = _getYearDropDown();
@@ -106,7 +125,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                       padding: const EdgeInsets.all(12.0),
                       child: TextFormField(
                         controller: nameTextController,
-                        decoration: InputDecoration(hintText: 'Product Name'),
+                        decoration: InputDecoration(hintText: 'Employee Name'),
                         validator: (value) {
                           if (value.isEmpty) {
                             return 'You must enter the Product Name';
@@ -115,6 +134,10 @@ class _AddEmployeeState extends State<AddEmployee> {
                           }
                         },
                       ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(child: Text("Date Of Joining")),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -228,7 +251,7 @@ class _AddEmployeeState extends State<AddEmployee> {
         items.insert(
             0,
             DropdownMenuItem(
-              child: Text(i.toString()),
+              child: Text(smonths[i - 1]),
               value: i,
             ));
       });

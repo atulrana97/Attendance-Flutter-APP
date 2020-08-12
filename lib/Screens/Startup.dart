@@ -33,7 +33,7 @@ class _StartUpPageState extends State<StartUpPage> {
                       "Staff Manegement Made Easy",
                       style: TextStyle(
                           fontSize: 24,
-                          color: Colors.blue[800],
+                          color: Colors.lightBlueAccent,
                           fontWeight: FontWeight.bold),
                       maxLines: 1,
                     ),

@@ -22,6 +22,7 @@ class _CalendarEmployeeState extends State<CalendarEmployee> {
     'July',
     'August',
     'September',
+    'October',
     'November',
     'December'
   ];
